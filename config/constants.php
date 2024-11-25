@@ -3,7 +3,7 @@
     session_start();
 
     //Create Constants to Store Non Repeating Values
-    define('SITEURL', getenv('SITEURL') ?: 'http://localhost:8082/'); // Production URL
+    define('SITEURL', getenv('SITEURL') ?: 'http://localhost:8080/'); // Production URL
     define('LOCALHOST', getenv('DB_HOST') ?: 'db');
     define('DB_USERNAME', getenv('DB_USERNAME') ?: 'root');
     define('DB_PASSWORD', getenv('DB_PASSWORD') ?: '');

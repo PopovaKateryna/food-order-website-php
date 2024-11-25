@@ -1,16 +1,20 @@
-# Використання базового образу PHP з FPM
-FROM php:8.2-fpm
+# Використовуємо офіційний образ PHP з Apache
+FROM php:8.1-apache
 
-# Оновлення пакетів та встановлення розширень PHP
-RUN apt-get update && apt-get install -y unzip && \
-    docker-php-ext-install pdo pdo_mysql mysqli
+# Встановлюємо робочу директорію
+WORKDIR /var/www/html
 
-# Встановлення Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php && \
-    php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/local/bin/composer
+# Копіюємо файли проєкту в контейнер
+COPY . /var/www/html
 
-# Налаштування робочої директорії та копіювання файлів
-WORKDIR /app
-COPY . /app
+# Встановлюємо необхідні розширення PHP
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Активуємо модуль Apache mod_rewrite, якщо потрібно
+RUN a2enmod rewrite
+
+# Відкриваємо порт 80
+EXPOSE 80
+
+# Запускаємо Apache в передньому плані
+CMD ["apache2-foreground"]
