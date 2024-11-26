@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         with:
           context: ./
           push: true
-          tags: popovakateryna/php-app:latest
+          tags: Popova1kateryna/php-app:latest
 
   test:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: "8.1"
 
       - name: Grant permission for tests
         run: chmod +x ./run_tests.sh

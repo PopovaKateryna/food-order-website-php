@@ -23,7 +23,7 @@
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
-            <h2 class="text-center">Popova</h2>
+            <h2 class="text-center">Popova1</h2>
 
             <?php
             //Create SQL Query to Display CAtegories from Database
