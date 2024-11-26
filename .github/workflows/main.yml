@@ -26,7 +26,7 @@ jobs:
         with:
           context: ./
           push: true
-          tags: Popova1kateryna/php-app:latest
+          tags: Explore Foodskateryna/php-app:latest
 
   test:
     runs-on: ubuntu-latest
